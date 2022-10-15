@@ -1,0 +1,7 @@
+.place__content {
+    width: 246px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
