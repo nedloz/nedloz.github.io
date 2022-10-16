@@ -35,3 +35,7 @@
 @import url(../blocks/place/__button/place__button.css);
 
 @import url(../blocks/place/__like-button/place__like-button.css);
+
+
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__text/footer__text.css);
