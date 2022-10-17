@@ -1,0 +1,9 @@
+.popup__input {
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    
+}
+
+.popup__input:focus {
+    border: none;
+}
