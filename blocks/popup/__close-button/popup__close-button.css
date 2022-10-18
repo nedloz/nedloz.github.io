@@ -1,0 +1,5 @@
+.popup__close-button {
+    position: fixed;
+    left: 0;
+    top: 0
+}
