@@ -1,0 +1,14 @@
+.popup__start {
+    display: flex;
+    width: 358px;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 580px) {
+    .popup__start {
+        width: 238px;
+        flex-direction: column;
+        margin-top: 25px;
+        margin-bottom: 55px;
+    }
+}

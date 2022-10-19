@@ -10,7 +10,6 @@
         <header class="header">
             <img class="header__image" src="./images/logo.svg" alt="логотип *место*">
         </header>
-    </body>
     <main class="main">
         <section class="profile">
             <div class="profile__card">
@@ -85,8 +84,10 @@
     </footer>
     <section class="popup popup_opened">
         <div class="popup__container">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <img class="popup__close-button" src="./images/Close Icon.svg" alt="кнопка закрытия попапа">
+            <div class="popup__start">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input class="popup__close-button" type="button">
+            </div>
             <form class="popup__form">
                 <input class="popup__input popup__input_name" type="text" placeholder="Имя" value="Жак-Ив Кусто">
                 <input class="popup__input popup__input_description" type="text" placeholder="Описание профиля" value="Исследователь океана">
@@ -94,5 +95,5 @@
             </form>   
         </div>
     </section>
-
+</body>
 </html>
