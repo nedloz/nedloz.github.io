@@ -21,15 +21,8 @@ let profileDescription = document.querySelector('.profile__description')
 
 function formSubmitHandler (evt) {
     evt.preventDefault();
-
-    console.log(nameInput.value);
-    console.log(jobInput.value);
-
     profileName.textContent = nameInput.value
     profileDescription.textContent = jobInput.value
-
-    console.log(profileDescription);
-    console.log(profileName);
     popupClose()
 }
 
