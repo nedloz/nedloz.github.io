@@ -1,0 +1,12 @@
+.place__content {
+    display: flex;
+    justify-content: space-between;
+    width: 242px;
+    align-items: baseline;
+    /*
+    background-color: #FFFFFF;
+
+    align-items: center;
+    margin-bottom: 25px;
+    */
+}
