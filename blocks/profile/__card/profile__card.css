@@ -4,7 +4,7 @@
     margin-right: 6px;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 590px) {
     .profile__card {
         flex-direction: column;
         margin-right: 0;

@@ -13,13 +13,13 @@
     position: relative;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 590px) {
     .profile__info {
         width: 282px;
         margin: 0 auto;
-        grid-template-columns: 1fr;
+        grid-template-columns: auto 0px;
         justify-items: center;
         column-gap: 0;
-        row-gap: 14px;
+        row-gap: 12px;
     }
 }

@@ -20,7 +20,7 @@
     background-color: #000;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 590px) {
     .popup__container {
         width: 282px;
         height: 322px;
