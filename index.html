@@ -26,55 +26,43 @@
                 <div class="place">
                     <img class="place__image" src="./images/place-image-1.jpg" alt="холмы и лес">
                     <div class="place__description">
-                        <div class="place__content">
-                            <p class="place__name">Ванкувер, Британская Колумбия, Канада</p>
-                            <button class="place__like-button" type="button"></button>
-                        </div>
+                        <h2 class="place__name">Ванкувер, Британская Колумбия, Канада</h2>
+                        <button class="place__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="place">
                     <img class="place__image" src="./images/place-image-2.jpg" alt="оранжевые горы и деревья">
                     <div class="place__description">
-                        <div class="place__content">
-                            <p class="place__name">Национальный парк Брайс-Каньон, Юта, США</p>
-                            <button class="place__like-button" type="button"></button>
-                        </div>
+                        <h2 class="place__name">Национальный парк Брайс-Каньон, Юта, США</h2>
+                        <button class="place__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="place">
                     <img class="place__image" src="./images/place-image-3.jpg" alt="вода и палки из под нее">
                     <div class="place__description">
-                        <div class="place__content">
-                            <p class="place__name">Сидар-Ки, Флорида, США</p>
-                            <button class="place__like-button" type="button"></button>
-                        </div>
+                        <h2 class="place__name">Сидар-Ки, Флорида, США</h2>
+                        <button class="place__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="place">
-                    <img class="place__image" src="./images/place-image-4.jpg" alt="две странных горы">
+                    <img class="place__image" src="./images/place-image-1.jpg" alt="две странных горы">
                     <div class="place__description">
-                        <div class="place__content">
-                            <p class="place__name">Национальный парк Брайс-Каньон, Юта, США</p>
-                            <button class="place__like-button" type="button"></button>
-                        </div>
+                        <h2 class="place__name">Национальный парк Брайс-Каньон, Юта, США</h2>
+                        <button class="place__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="place">
-                    <img class="place__image" src="./images/place-image-5.jpg" alt="щель между горами">
+                    <img class="place__image" src="./images/place-image-2.jpg" alt="щель между горами">
                     <div class="place__description">
-                        <div class="place__content">
-                            <p class="place__name">Национальный парк Брайс-Каньон, Юта, США</p>
-                            <button class="place__like-button" type="button"></button>
-                        </div>
+                        <h2 class="place__name">Национальный парк Брайс-Каньон, Юта, США</h2>
+                         class="place__like-button" type="button"></button>
                     </div>
                 </div>
                 <div class="place">
-                    <img class="place__image" src="./images/place-image-6.jpg" alt="ветки и горы">
+                    <img class="place__image" src="./images/place-image-3.jpg" alt="ветки и горы">
                     <div class="place__description">
-                        <div class="place__content">
-                            <p class="place__name">Карачаево-Черкесия</p>
-                            <button class="place__like-button" type="button"></button>
-                        </div>
+                        <h2 class="place__name">Карачаево-Черкесия</h2>
+                        <button class="place__like-button" type="button"></button>
                     </div>
                 </div>
             </section>
@@ -82,19 +70,19 @@
         <footer class="footer">
             <p class="footer__text">© 2020 Mesto Russia</p>
         </footer>
-        <section class="popup">
+        <div class="popup">
             <div class="popup__container">
                 <div class="popup__start">
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <button class="popup__close-button" type="button" value=""></button>
                 </div>
-                <form class="popup__form" action="#">
-                    <input class="popup__input popup__input_name" type="text" placeholder="Имя" value="Жак-Ив Кусто">
-                    <input class="popup__input popup__input_description" type="text" placeholder="Професстия" value="Исследователь океана">
+                <form class="popup__form" action="#" name="profile" method="post">
+                    <input class="popup__input popup__input_type_name" type="text" placeholder="Имя" name="prifile__name">
+                    <input class="popup__input popup__input_type_description" type="text" placeholder="Професстия" name="profile__description">
                     <input  class="popup__save-button" type="submit" value="Сохранить">
                 </form>   
             </div>
-        </section>
-        <script src="./pages/index.js"></script>
+        </div>
+        <script src="./scripts/index.js"></script>
 </body>
 </html>

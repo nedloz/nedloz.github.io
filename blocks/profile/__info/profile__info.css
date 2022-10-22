@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 1fr auto;
     column-gap: 18px;
-    row-gap: 16px;
+    row-gap: 9px;
     justify-items: flex-start;
     align-items: flex-end;
     grid-template-areas:
@@ -13,13 +13,13 @@
     position: relative;
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 610px) {
     .profile__info {
         width: 282px;
         margin: 0 auto;
         grid-template-columns: auto 0px;
         justify-items: center;
         column-gap: 0;
-        row-gap: 12px;
+        row-gap: 8px;
     }
 }

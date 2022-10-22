@@ -2,9 +2,10 @@
     display: flex;
     width: 358px;
     justify-content: space-between;
+    
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 610px) {
     .popup__start {
         width: 238px;
         flex-direction: column;

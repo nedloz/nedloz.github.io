@@ -5,13 +5,13 @@
     flex-direction: row;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 934px) {
     .profile {
         margin: 40px 27px 0;
     }
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 610px) {
     .profile {
         flex-direction: column;
         margin: 42px 19px 0;

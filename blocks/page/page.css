@@ -3,6 +3,6 @@
     max-width: 880px;
     margin: 0 auto;
     color: #fff;
-    font-family: 'Inter', 'arial black';
+    font-family: 'Inter', 'arial black', sans-serif;
     position: relative;
 }

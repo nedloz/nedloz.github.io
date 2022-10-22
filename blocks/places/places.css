@@ -9,14 +9,14 @@
     row-gap: 20px;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 934px) {
     .places {
         max-width: 584px;
         grid-template-columns: repeat(2, 282px);
     }
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 610px) {
     .places {
         margin-top: 36px;
         margin-bottom: 48px;
