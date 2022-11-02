@@ -1,9 +1,11 @@
 .place__description {
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: #fff;
     color: #000;
     height: 79px;
     border-radius: 0 0 10px 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }

@@ -23,48 +23,6 @@
                 <button class="profile__add-button" type="button"></button>
             </section>
             <section class="places">
-                <div class="place">
-                    <img class="place__image" src="./images/place-image-1.jpg" alt="холмы и лес">
-                    <div class="place__description">
-                        <h2 class="place__name">Ванкувер, Британская Колумбия, Канада</h2>
-                        <button class="place__like-button" type="button"></button>
-                    </div>
-                </div>
-                <div class="place">
-                    <img class="place__image" src="./images/place-image-2.jpg" alt="оранжевые горы и деревья">
-                    <div class="place__description">
-                        <h2 class="place__name">Национальный парк Брайс-Каньон, Юта, США</h2>
-                        <button class="place__like-button" type="button"></button>
-                    </div>
-                </div>
-                <div class="place">
-                    <img class="place__image" src="./images/place-image-3.jpg" alt="вода и палки из под нее">
-                    <div class="place__description">
-                        <h2 class="place__name">Сидар-Ки, Флорида, США</h2>
-                        <button class="place__like-button" type="button"></button>
-                    </div>
-                </div>
-                <div class="place">
-                    <img class="place__image" src="./images/place-image-1.jpg" alt="две странных горы">
-                    <div class="place__description">
-                        <h2 class="place__name">Национальный парк Брайс-Каньон, Юта, США</h2>
-                        <button class="place__like-button" type="button"></button>
-                    </div>
-                </div>
-                <div class="place">
-                    <img class="place__image" src="./images/place-image-2.jpg" alt="щель между горами">
-                    <div class="place__description">
-                        <h2 class="place__name">Национальный парк Брайс-Каньон, Юта, США</h2>
-                        <button class="place__like-button" type="button"></button>
-                    </div>
-                </div>
-                <div class="place">
-                    <img class="place__image" src="./images/place-image-3.jpg" alt="ветки и горы">
-                    <div class="place__description">
-                        <h2 class="place__name">Карачаево-Черкесия</h2>
-                        <button class="place__like-button" type="button"></button>
-                    </div>
-                </div>
             </section>
         </main>
         <footer class="footer">
@@ -83,6 +41,22 @@
                 </form>   
             </div>
         </div>
+            <div class="popup-image">
+               <figure class="popup-image__container">
+                <button class="popup-image__close-button" type="button" value=""></button>
+                <img class="popup-image__image">
+                <figcaption class="popup-image__title"></figcaption>
+               </figure>
+            </div>
+        <template id="place-template">
+                <div class="place" style="background-image:url()">
+                    <button class="place__trash" type="button"></button>
+                    <div class="place__description">
+                        <h2 class="place__name"></h2>
+                        <button class="place__like-button" type="button"></button>
+                    </div>
+                </div>
+        </template>
         <script src="./scripts/index.js"></script>
 </body>
 </html>
