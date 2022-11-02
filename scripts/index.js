@@ -74,7 +74,7 @@ const creatPlace = (name, link) => {
   placeElement.addEventListener('click', (evt) => {
     if (!(evt.target === placeElement.querySelector('.place__trash') || evt.target === placeElement.querySelector('.place__description') || 
     evt.target === placeElement.querySelector('.place__name') || evt.target === placeElement.querySelector('.place__like-button'))) {
-    imagePopupImage.src = link; imagePopupTitle.textContent = name; imagePopup.classList.add('popup_opened') };
+    imagePopupImage.src = link; imagePopupTitle.textContent = name; imagePopupImage.alt = name; imagePopup.classList.add('popup_opened') };
   });
   places.prepend(placeElement);
 };
