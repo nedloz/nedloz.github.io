@@ -36,17 +36,17 @@ const places = document.querySelector('.places');
 
 // попап профиля 
 const profilePopup = document.querySelector('.profile-popup');
-const profilePopupForm = profilePopup.querySelector('.profile-popup__form');
-const profilePopupInputName = profilePopupForm.querySelector('.profile-popup__input_type_name');
-const profilePopupInputDescription = profilePopupForm.querySelector('.profile-popup__input_type_description');
-const profilePopupCloseButton = profilePopup.querySelector('.profile-popup__close-button');
+const profilePopupForm = profilePopup.querySelector('.popup__form_type_profile');
+const profilePopupInputName = profilePopupForm.querySelector('.popup__input_type_profile-name');
+const profilePopupInputDescription = profilePopupForm.querySelector('.popup__input_type_profile-description');
+const profilePopupCloseButton = profilePopup.querySelector('.popup__close-button_type_profile');
 
 // Card попап
 const cardPopup = document.querySelector('.card-popup');
-const cardPopupForm = cardPopup.querySelector('.card-popup__form');
-const cardPopupInputName = cardPopupForm.querySelector('.card-popup__input_type_name');
-const cardPopupInputLink = cardPopupForm.querySelector('.card-popup__input_type_link');
-const cardPopupCloseButton = cardPopup.querySelector('.card-popup__close-button');
+const cardPopupForm = cardPopup.querySelector('.popup__form_type_card');
+const cardPopupInputName = cardPopupForm.querySelector('.popup__input_type_card-name');
+const cardPopupInputLink = cardPopupForm.querySelector('.popup__input_type_card-link');
+const cardPopupCloseButton = cardPopup.querySelector('.popup__close-button_type_card');
 
 // попап-картинка
 const imagePopup = document.querySelector('.image-popup');
