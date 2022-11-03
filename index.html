@@ -28,27 +28,39 @@
         <footer class="footer">
             <p class="footer__text">© 2020 Mesto Russia</p>
         </footer>
-        <div class="popup">
+        <div class="popup profile-popup">
             <div class="popup__container">
                 <div class="popup__start">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <button class="popup__close-button" type="button" value=""></button>
+                    <button class="popup__close-button profile-popup__close-button" type="button" value=""></button>
                 </div>
-                <form class="popup__form" action="#" name="profile" method="post">
-                    <input class="popup__input popup__input_type_name" type="text" placeholder="Имя" name="prifile__name">
-                    <input class="popup__input popup__input_type_description" type="text" placeholder="Професстия" name="profile__description">
-                    <input  class="popup__save-button" type="submit" value="Сохранить">
+                <form class="popup__form profile-popup__form" action="#" name="profile-popup-form" method="post">
+                    <input class="popup__input profile-popup__input_type_name" name="profile__name" type="text" placeholder="Имя">
+                    <input class="popup__input profile-popup__input_type_description" name="profile__description" type="text" placeholder="Професстия">
+                    <input class="popup__save-button" type="submit" value="Сохранить">
                 </form>   
             </div>
         </div>
-            <div class="popup-image">
-               <figure class="popup-image__container">
-                <button class="popup-image__close-button" type="button" value=""></button>
-                <img class="popup-image__image" src="#" alt="">
-                
-                <figcaption class="popup-image__title"></figcaption>
-               </figure>
+        <div class="popup card-popup">
+            <div class="popup__container">
+                <div class="popup__start">
+                    <h2 class="popup__title">Новое место</h2>
+                    <button class="popup__close-button card-popup__close-button" type="button" value=""></button>
+                </div>
+                <form class="popup__form card-popup__form" action="#" name="card-popup-form" method="post">
+                    <input class="popup__input card-popup__input_type_name" name="card-popup__name" type="text" placeholder="Название">
+                    <input class="popup__input card-popup__input_type_link" name="card-popup__link" type="text" placeholder="Ссылка на картинку">
+                    <input class="popup__save-button" type="submit" value="Сохранить">
+                </form>   
             </div>
+        </div>
+        <div class="popup image-popup">
+           <figure class="image-popup__container">
+            <button class="popup__close-button popup__close-button_type_image-popup" type="button" value=""></button>
+            <img class="image-popup__image" src="#" alt="">
+            <figcaption class="image-popup__title"></figcaption>
+           </figure>
+        </div>
         <template id="place-template">
                 <div class="place" style="background-image:url()">
                     <button class="place__trash" type="button"></button>

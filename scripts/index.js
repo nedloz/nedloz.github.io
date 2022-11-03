@@ -25,41 +25,39 @@ const initialCards = [
   }
 ]; // массив с карточками
 
-const popup = document.querySelector('.popup');// весь попап ---
-const formElement = popup.querySelector('.popup__form');// форма попапа
+// сам профиль
+const openProfilePopupButton = document.querySelector('.profile__edit-button');
+const openCardPopupButton = document.querySelector('.profile__add-button');
+let profileName = document.querySelector('.profile__name');
+let profileDescription = document.querySelector('.profile__description');
 
-const popupCloseButton = popup.querySelector('.popup__close-button');// кнопка закрытия попапа
-const popupTitle = popup.querySelector('.popup__title');// название попапа ---
-const firstInput = popup.querySelector('.popup__input_type_name');// первый input попапа
-const secondInput = popup.querySelector('.popup__input_type_description');// второй input попапа
-const openPopupButton = document.querySelector('.profile__edit-button');// кнопка редактирования в профиле ---
-const addPlaceButton = document.querySelector('.profile__add-button');// кнопка добавления в профиле
-let profileName = document.querySelector('.profile__name');// имя профиля
-let profileDescription = document.querySelector('.profile__description');// описание профиля
-const places = document.querySelector('.places'); // коробка с карточками ----
-const imagePopup = document.querySelector('.popup-image'); // попап-картинка ----
-const imagePopupImage = imagePopup.querySelector('.popup-image__image'); // картинка попапа-картинки
-const imagePopupTitle = imagePopup.querySelector('.popup-image__title'); // название попапа-картинки
-const imagePopupCloseButton = imagePopup.querySelector('.popup-image__close-button'); // кнопка закрытия попапа-картинки
+// место постов
+const places = document.querySelector('.places');
 
-const popupClose = () => { popup.classList.remove('popup_opened'); };
-// ребята которые читают стихи пользователя
-profileName.textContent = 'Жак-Ив Кусто';
-profileDescription.textContent = 'Исследователь океана';
+// попап профиля 
+const profilePopup = document.querySelector('.profile-popup');
+const profilePopupForm = profilePopup.querySelector('.profile-popup__form');
+const profilePopupInputName = profilePopupForm.querySelector('.profile-popup__input_type_name');
+const profilePopupInputDescription = profilePopupForm.querySelector('.profile-popup__input_type_description');
+const profilePopupCloseButton = profilePopup.querySelector('.profile-popup__close-button');
 
-const formSubmitHandlerProfile = (evt) => {
-  evt.preventDefault();
-  profileName.textContent = firstInput.value;
-  profileDescription.textContent = secondInput.value;
-  popupClose();
-};
+// Card попап
+const cardPopup = document.querySelector('.card-popup');
+const cardPopupForm = cardPopup.querySelector('.card-popup__form');
+const cardPopupInputName = cardPopupForm.querySelector('.card-popup__input_type_name');
+const cardPopupInputLink = cardPopupForm.querySelector('.card-popup__input_type_link');
+const cardPopupCloseButton = cardPopup.querySelector('.card-popup__close-button');
 
-const formSubmitHandlerNewPlace = (evt) => {
-  evt.preventDefault(); 
-  initialCards.unshift({ name: firstInput.value, link: secondInput.value});
-  creatPlace(firstInput.value, secondInput.value);
-  popupClose();
-};
+// попап-картинка
+const imagePopup = document.querySelector('.image-popup');
+const imagePopupImage = imagePopup.querySelector('.image-popup__image');
+const imagePopupTitle = imagePopup.querySelector('.image-popup__title');
+const imagePopupCloseButton = imagePopup.querySelector('.popup__close-button_type_image-popup');
+
+// закрытие попапов
+const profilePopupClose = () => { profilePopup.classList.remove('popup_opened'); };
+const cardPopupClose = () => { cardPopup.classList.remove('popup_opened'); };
+const imagePopupClose = () => { imagePopup.classList.remove('popup_opened'); };
 
 
 
@@ -79,32 +77,44 @@ const creatPlace = (name, link) => {
   places.prepend(placeElement);
 };
 
+const ProfilePopupFormSubmitHandler = (evt) => {
+  evt.preventDefault();
+  profileName.textContent = profilePopupInputName.value;
+  profileDescription.textContent = profilePopupInputDescription.value;
+  profilePopupClose();
+};
+
+const CardPopupFormSubmitHandler = (evt) => {
+  evt.preventDefault(); 
+  initialCards.unshift({ name: cardPopupInputName.value, link: cardPopupInputLink.value});
+  creatPlace(cardPopupInputName.value, cardPopupInputLink.value);
+  cardPopupClose();
+};
+
+
+
+profilePopupCloseButton.addEventListener('click', profilePopupClose);
+cardPopupCloseButton.addEventListener('click', cardPopupClose);
+imagePopupCloseButton.addEventListener('click', imagePopupClose);
+
+profileName.textContent = 'Жак-Ив Кусто';
+profileDescription.textContent = 'Исследователь океана';
 
 // слушатель кнопки редактирования профиля
-openPopupButton.addEventListener('click', () => {
-  popupTitle.textContent = 'Редактировать профиль';
-  firstInput.placeholder = 'Имя';
-  secondInput.placeholder = 'Професстия';
-  firstInput.value = profileName.textContent;
-  secondInput.value = profileDescription.textContent;
-  popup.classList.add('popup_opened');
-  formElement.addEventListener('submit', formSubmitHandlerProfile);
+openProfilePopupButton.addEventListener('click', () => {
+  profilePopupInputName.value = profileName.textContent;
+  profilePopupInputDescription.value = profileDescription.textContent;
+  profilePopup.classList.add('popup_opened');
+  profilePopupForm.addEventListener('submit', ProfilePopupFormSubmitHandler);
 });
 
 // cлушатель кнопки добавления поста
-addPlaceButton.addEventListener('click', () => {
-  popupTitle.textContent = 'Новое место';
-  firstInput.placeholder = 'Название';
-  secondInput.placeholder = 'Ссылка на картинку';
-  firstInput.value = '';
-  secondInput.value = '';
-  popup.classList.add('popup_opened');
-  formElement.addEventListener('submit', formSubmitHandlerNewPlace);
+openCardPopupButton.addEventListener('click', () => {
+  cardPopupInputName.value = '';
+  cardPopupInputLink.value = '';
+  cardPopup.classList.add('popup_opened');
+  cardPopupForm.addEventListener('submit', CardPopupFormSubmitHandler);
 });
-
-// закрытие попапов
-popupCloseButton.addEventListener('click', popupClose);
-imagePopupCloseButton.addEventListener('click', () => { imagePopup.classList.remove('popup_opened'); });
 
 initialCards.forEach((element) => {
   creatPlace(element.name, element.link);

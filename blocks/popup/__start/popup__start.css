@@ -2,7 +2,6 @@
     display: flex;
     width: 358px;
     justify-content: space-between;
-    
 }
 
 @media screen and (max-width: 610px) {
