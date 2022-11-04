@@ -32,11 +32,11 @@
             <div class="popup__container">
                 <div class="popup__start">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <button class="popup__close-button popup__close-button_type_profile" type="button" value=""></button>
+                    <button class="popup__close-button" type="button" value=""></button>
                 </div>
-                <form class="popup__form popup__form_type_profile" action="#" name="profile-popup-form" method="post">
-                    <input class="popup__input popup__input_type_profile-name" name="profile__name" type="text" placeholder="Имя">
-                    <input class="popup__input popup__input_type_profile-description" name="profile__description" type="text" placeholder="Професстия">
+                <form class="popup__form popup__form_type_profile" action="#" name="profilePopupForm" method="post">
+                    <input class="popup__input popup__input_type_profile-name" name="profileName" type="text" placeholder="Имя">
+                    <input class="popup__input popup__input_type_profile-description" name="profileDescription" type="text" placeholder="Професстия">
                     <input class="popup__save-button" type="submit" value="Сохранить">
                 </form>   
             </div>
@@ -45,11 +45,11 @@
             <div class="popup__container">
                 <div class="popup__start">
                     <h2 class="popup__title">Новое место</h2>
-                    <button class="popup__close-button popup__close-button_type_card" type="button" value=""></button>
+                    <button class="popup__close-button" type="button" value=""></button>
                 </div>
-                <form class="popup__form popup__form_type_card" action="#" name="card-popup-form" method="post">
-                    <input class="popup__input popup__input_type_card-name" name="card-popup__name" type="text" placeholder="Название">
-                    <input class="popup__input popup__input_type_card-link" name="card-popup__link" type="text" placeholder="Ссылка на картинку">
+                <form class="popup__form popup__form_type_card" action="#" name="cardPopupForm" method="post">
+                    <input class="popup__input popup__input_type_card-name" name="cardPopupName" type="text" placeholder="Название">
+                    <input class="popup__input popup__input_type_card-link" name="cardPopupLink" type="text" placeholder="Ссылка на картинку">
                     <input class="popup__save-button" type="submit" value="Сохранить">
                 </form>   
             </div>
@@ -62,7 +62,8 @@
            </figure>
         </div>
         <template id="place-template">
-                <div class="place" style="background-image:url()">
+                <div class="place">
+                    <img class="place__image" src="#" alt="#">
                     <button class="place__trash" type="button"></button>
                     <div class="place__description">
                         <h2 class="place__name"></h2>
