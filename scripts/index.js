@@ -71,15 +71,17 @@ const closePopup = (popup) => {
 };
 
 // создание карточки
-const creatCard = (nam, lin) => {
+const createCard = (nam, lin) => {
   const placeTemplate = document.querySelector('#place-template').content;
   const placeElement = placeTemplate.querySelector('.place').cloneNode(true);
-  placeElement.querySelector('.place__image').src = lin;
+  const placeImage = placeElement.querySelector('.place__image');
+  placeImage.src = lin;
+  placeImage.alt = nam;
   placeElement.querySelector('.place__name').textContent = nam;
   placeElement.querySelector('.place__like-button').addEventListener('click', (evt) => { evt.target.classList.toggle('place__like-button_active'); });
   const trash = placeElement.querySelector('.place__trash')
   trash.addEventListener('click', () =>{ placeElement.remove(); });
-  placeElement.querySelector('.place__image').addEventListener('click', () => {
+  placeImage.addEventListener('click', () => {
     imagePopupImage.src = lin;
     imagePopupImage.alt = nam;
     imagePopupTitle.textContent = nam;
@@ -89,21 +91,21 @@ const creatCard = (nam, lin) => {
 };
 
 // добавление карточки
-const creatPlace = (name, link) => {
-  cardsContainer.prepend(creatCard(name, link));
+const createPlace = (name, link) => {
+  cardsContainer.prepend(createCard(name, link));
 };
 
 
-const submitHandlerProfilePopupForm = (evt) => {
+const handleProfilePopupForm = (evt) => {
   evt.preventDefault();
   profileName.textContent = profilePopupInputName.value;
   profileDescription.textContent = profilePopupInputDescription.value;
   closePopup(profilePopup);
 };
 
-const submitHandlerCardPopupForm = (evt) => {
+const handleCardPopupForm = (evt) => {
   evt.preventDefault(); 
-  creatPlace(cardPopupInputName.value, cardPopupInputLink.value);
+  createPlace(cardPopupInputName.value, cardPopupInputLink.value);
   closePopup(cardPopup);
   evt.target.reset();
 };
@@ -116,8 +118,8 @@ openProfilePopupButton.addEventListener('click', () => {
   openPopup(profilePopup);
 });
 
-profilePopupForm.addEventListener('submit', submitHandlerProfilePopupForm);
-cardPopupForm.addEventListener('submit', submitHandlerCardPopupForm);
+profilePopupForm.addEventListener('submit', handleProfilePopupForm);
+cardPopupForm.addEventListener('submit', handleCardPopupForm);
 
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
@@ -125,5 +127,5 @@ closeButtons.forEach((button) => {
 });
 
 initialCards.forEach((element) => {
-  creatPlace(element.name, element.link);
+  createPlace(element.name, element.link);
 });
