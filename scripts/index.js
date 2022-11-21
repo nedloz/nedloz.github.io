@@ -60,15 +60,20 @@ profileName.textContent = 'Жак-Ив Кусто';
 profileDescription.textContent = 'Исследователь океана';
 
 
-// открытие попапов
-const openPopup = (popup) => {
-  popup.classList.add('popup_opened');
-};
+const closePopupByKeydown = (keyNum, popup, key) => { if (key.keyCode === keyNum) { closePopup(popup) } };
 
-// закрытие попапов
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', (key) => { closePopupByKeydown(27, popup, key) });
+  document.removeEventListener('mousedown', (evt) => { if (evt.target === popup){ closePopup(popup) } });
 };
+
+const openPopup = (popup) => {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', (key) => { closePopupByKeydown(27, popup, key) });
+  document.addEventListener('mousedown', (evt) => { if (evt.target === popup){ closePopup(popup) } });
+};
+
 
 // создание карточки
 const createCard = (nam, lin) => {
@@ -80,7 +85,7 @@ const createCard = (nam, lin) => {
   placeElement.querySelector('.place__name').textContent = nam;
   placeElement.querySelector('.place__like-button').addEventListener('click', (evt) => { evt.target.classList.toggle('place__like-button_active'); });
   const trash = placeElement.querySelector('.place__trash')
-  trash.addEventListener('click', () =>{ placeElement.remove(); });
+  trash.addEventListener('click', () => { placeElement.remove(); });
   placeImage.addEventListener('click', () => {
     imagePopupImage.src = lin;
     imagePopupImage.alt = nam;
@@ -91,9 +96,7 @@ const createCard = (nam, lin) => {
 };
 
 // добавление карточки
-const createPlace = (name, link) => {
-  cardsContainer.prepend(createCard(name, link));
-};
+const createPlace = (name, link) => { cardsContainer.prepend(createCard(name, link)) };
 
 
 const handleProfilePopupForm = (evt) => {
@@ -110,8 +113,9 @@ const handleCardPopupForm = (evt) => {
   evt.target.reset();
 };
 
+
 // слушатели кнопок в профиле
-openCardPopupButton.addEventListener('click', () => { openPopup(cardPopup); });
+openCardPopupButton.addEventListener('click', (evt) => { openPopup(cardPopup) });
 openProfilePopupButton.addEventListener('click', () => {
   profilePopupInputName.value = profileName.textContent;
   profilePopupInputDescription.value = profileDescription.textContent;
@@ -126,6 +130,4 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-initialCards.forEach((element) => {
-  createPlace(element.name, element.link);
-});
+initialCards.forEach((element) => { createPlace(element.name, element.link) });
