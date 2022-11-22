@@ -45,6 +45,7 @@ const cardPopup = document.querySelector('.card-popup');
 const cardPopupForm = document.forms['cardPopupForm'];
 const cardPopupInputName = cardPopupForm.cardPopupName;
 const cardPopupInputLink = cardPopupForm.cardPopupLink;
+const cardPopupButton = cardPopup.querySelector('.popup__button');
 
 // попап-картинка
 const imagePopup = document.querySelector('.image-popup');
@@ -52,26 +53,37 @@ const imagePopupImage = imagePopup.querySelector('.image-popup__image');
 const imagePopupTitle = imagePopup.querySelector('.image-popup__title');
 const imagePopupCloseButton = imagePopup.querySelector('.popup__close-button_type_image-popup');
 
-// все крестики попапов
+// все кнопки закрытия
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
 // первоначальные значения имени и описния профиля
 profileName.textContent = 'Жак-Ив Кусто';
 profileDescription.textContent = 'Исследователь океана';
 
+const closePopupByOverlayClick = (evt) => { 
+  if (evt.target === evt.currentTarget) {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+};
 
-const closePopupByKeydown = (keyNum, popup, key) => { if (key.keyCode === keyNum) { closePopup(popup) } };
+const closePopupByEscape = (key) => { 
+  if (key.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+};
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', (key) => { closePopupByKeydown(27, popup, key) });
-  document.removeEventListener('mousedown', (evt) => { if (evt.target === popup){ closePopup(popup) } });
+  document.removeEventListener('keydown', closePopupByEscape );
+  popup.removeEventListener('mousedown', closePopupByOverlayClick );
 };
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', (key) => { closePopupByKeydown(27, popup, key) });
-  document.addEventListener('mousedown', (evt) => { if (evt.target === popup){ closePopup(popup) } });
+  document.addEventListener('keydown', closePopupByEscape );
+  popup.addEventListener('mousedown', closePopupByOverlayClick );
 };
 
 
@@ -84,7 +96,7 @@ const createCard = (nam, lin) => {
   placeImage.alt = nam;
   placeElement.querySelector('.place__name').textContent = nam;
   placeElement.querySelector('.place__like-button').addEventListener('click', (evt) => { evt.target.classList.toggle('place__like-button_active'); });
-  const trash = placeElement.querySelector('.place__trash')
+  const trash = placeElement.querySelector('.place__trash');
   trash.addEventListener('click', () => { placeElement.remove(); });
   placeImage.addEventListener('click', () => {
     imagePopupImage.src = lin;
@@ -96,7 +108,7 @@ const createCard = (nam, lin) => {
 };
 
 // добавление карточки
-const createPlace = (name, link) => { cardsContainer.prepend(createCard(name, link)) };
+const createPlace = (name, link) => { cardsContainer.prepend( createCard(name, link) ) };
 
 
 const handleProfilePopupForm = (evt) => {
@@ -111,6 +123,8 @@ const handleCardPopupForm = (evt) => {
   createPlace(cardPopupInputName.value, cardPopupInputLink.value);
   closePopup(cardPopup);
   evt.target.reset();
+  cardPopupButton.classList.add('popup__button_disabled');
+  cardPopupButton.disabled = true;
 };
 
 
