@@ -39,13 +39,13 @@ const cardsContainer = document.querySelector('.places');
 
 // попап профиля 
 const profilePopup = document.querySelector('.profile-popup');
-const profilePopupForm = document.forms['profilePopupForm'];
+const profilePopupForm = document.forms['profile-form'];
 const profilePopupInputName = profilePopupForm.profileName;
 const profilePopupInputDescription = profilePopupForm.profileDescription;
 
 // Card попап
 const cardPopup = document.querySelector('.card-popup');
-const cardPopupForm = document.forms['cardPopupForm'];
+const cardPopupForm = document.forms['card-form'];
 const cardPopupInputName = cardPopupForm.cardPopupName;
 const cardPopupInputLink = cardPopupForm.cardPopupLink;
 const cardPopupButton = cardPopup.querySelector('.popup__button');
@@ -57,11 +57,28 @@ const closeButtons = document.querySelectorAll('.popup__close-button');
 profileName.textContent = 'Жак-Ив Кусто';
 profileDescription.textContent = 'Исследователь океана';
 
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
+
+const formValidators = {};
+const formList = Array.from(document.querySelectorAll(config.formSelector));
+
+formList.forEach((formElement) => {
+  const validator = new FormValidator(config, formElement);
+  const formName = formElement.getAttribute('name');
+  formValidators[formName] = validator;
+});
+
 const closePopupByOverlayClick = (evt) => { 
   if (evt.target === evt.currentTarget) {
-    const popup = document.querySelector('.popup_opened');
-    closePopup(popup);
-  }
+    closePopup(evt.currentTarget);
+  };
 };
 
 const closePopupByEscape = (key) => { 
@@ -83,9 +100,15 @@ export const openPopup = (popup) => {
   popup.addEventListener('mousedown', closePopupByOverlayClick );
 };
 
+
+const creatCard = (name, link) => {
+  const cardElement = new Card( name, link, '.place-template' ).generateCard();
+  return cardElement;
+}
+
 // добавление карточки
 const createPlace = (name, link) => {
-  cardsContainer.prepend( new Card( name, link, '.place-template' ).generateCard() )
+  cardsContainer.prepend( creatCard(name, link) );
 };
 
 const handleProfilePopupForm = (evt) => {
@@ -100,12 +123,15 @@ const handleCardPopupForm = (evt) => {
   createPlace(cardPopupInputName.value, cardPopupInputLink.value);
   closePopup(cardPopup);
   evt.target.reset();
-  cardPopupButton.classList.add('popup__button_disabled');
-  cardPopupButton.disabled = true;
+  formValidators[cardPopupForm.name].disableButton();
 };
 
 // слушатели кнопок в профиле
-openCardPopupButton.addEventListener('click', (evt) => { openPopup(cardPopup) });
+openCardPopupButton.addEventListener('click', () => {
+  openPopup(cardPopup);
+  formValidators[cardPopupForm.name].resetValidation();
+});
+
 openProfilePopupButton.addEventListener('click', () => {
   profilePopupInputName.value = profileName.textContent;
   profilePopupInputDescription.value = profileDescription.textContent;
@@ -120,19 +146,11 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-initialCards.forEach((element) => { createPlace(element.name, element.link) });
-
-const  enableValidation = (obj) => {
-  const formList = Array.from(document.querySelectorAll(obj.formSelector))
+const enableValidation = () => {
   formList.forEach((form) => {
-    new FormValidator(obj, form).enableValidation()
-  })
+    formValidators[form.name].enableValidation();
+  });
 }
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-})
+
+enableValidation();
+initialCards.forEach((element) => { createPlace(element.name, element.link) });
