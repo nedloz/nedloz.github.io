@@ -3,18 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./pages/index.css">
-        <script defer type="module" src="./scripts/index.js"></script>
         <title>Место</title>
     </head>
     <body class="page">
         <header class="header">
-            <img class="header__image" src="./images/logo.svg" alt="логотип *место*">
+            <img class="header__image" src="<%=require('./images/logo.svg')%>" alt="логотип *место*">
         </header>
         <main class="main">
             <section class="profile">
                 <div class="profile__card">
-                    <img class="profile__image" src="./images/profilepicture.jpg" alt="картинка профиля">
+                    <img class="profile__image" src="<%=require('./images/profilepicture.jpg')%>" alt="картинка профиля">
                     <div class="profile__info">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <button class="profile__edit-button" type="button"></button>
@@ -27,7 +25,7 @@
             </section>
         </main>
         <footer class="footer">
-            <p class="footer__text">© 2020 Mesto Russia</p>
+            <p class="footer__text">© 2022 Mesto Russia</p>
         </footer>
         
         <div class="popup profile-popup">
@@ -38,11 +36,11 @@
                 </div>
                 <form novalidate class="popup__form popup__form_type_profile" action="#" name="profile-form" method="post">
                     <label class="popup__input-container">
-                        <input class="popup__input popup__input_type_profile-name" id="profile-name" name="profileName" type="text" minlength="2" maxlength="40" required placeholder="Имя">
+                        <input class="popup__input popup__input_type_profile-name" id="profile-name" name="name" type="text" minlength="2" maxlength="40" required placeholder="Имя">
                         <span class="popup__error profile-name-error"></span>
                     </label>
                     <label class="popup__input-container">
-                        <input class="popup__input popup__input_type_profile-description" id="profile-description" name="profileDescription" type="text" minlength="2" maxlength="200" required placeholder="Профессия">
+                        <input class="popup__input popup__input_type_profile-description" id="profile-description" name="description" type="text" minlength="2" maxlength="200" required placeholder="Профессия">
                         <span class="popup__error profile-description-error"></span>
                     </label>
                     <input class="popup__button" type="submit" value="Сохранить">
@@ -57,11 +55,11 @@
                 </div>
                 <form novalidate class="popup__form popup__form_type_card " action="#" name="card-form" method="post">
                     <label class="popup__input-container">
-                        <input class="popup__input popup__input_type_card-name popup__input_type_error" id="card-name" name="cardPopupName" type="text" minlength="2" maxlength="30" required placeholder="Название">
+                        <input class="popup__input popup__input_type_card-name popup__input_type_error" id="card-name" name="title" type="text" minlength="2" maxlength="30" required placeholder="Название">
                         <span class="popup__error card-name-error popup__error_visible"></span>
                     </label>
                     <label class="popup__input-container">
-                        <input class="popup__input popup__input_type_card-link popup__input_type_error" id="card-link" name="cardPopupLink" type="url" required placeholder="Ссылка на картинку">
+                        <input class="popup__input popup__input_type_card-link popup__input_type_error" id="card-link" name="link" type="url" required placeholder="Ссылка на картинку">
                         <span class="popup__error card-link-error popup__error_visible"></span>
                     </label>
                     <input class="popup__button" type="submit" value="Сохранить">
