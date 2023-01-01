@@ -78,7 +78,10 @@ formList.forEach((form) => {
   formValidators[formName] = validator
 })
 
-formList.forEach((form) => {
-  const formName = form.getAttribute('name')
-  formValidators[formName].enableValidation()
-})
+const enableValidation = () => {
+  formList.forEach((form) => {
+    const formName = form.getAttribute('name')
+    formValidators[formName].enableValidation()
+  })
+}
+
