@@ -4,6 +4,9 @@ export default class Card {
         this._link = data.link;
         this._templateSelector = templateSelector;
         this.handleCardClick = handleCardClick
+        this._toggleLike = this._toggleLike.bind(this)
+        this._handleImageClick = this._handleImageClick.bind(this)
+        this._deleteCard = this._deleteCard.bind(this)
     }
 
     _getTemplate() {
@@ -21,12 +24,25 @@ export default class Card {
         this._image.alt = this._name;
     }
 
+    _toggleLike(evt) {
+        evt.target.classList.toggle('place__like-button_active')
+    }
+
+    _deleteCard() {
+        this.handleCardClick(this._link, this._name)
+    }
+
+    _handleImageClick() {
+        this._element.remove()
+    }
+
+
     _setEventListeners() {
         this._like = this._element.querySelector('.place__like-button');
         this._trash = this._element.querySelector('.place__trash');
-        this._like.addEventListener('click', (evt) => { evt.target.classList.toggle('place__like-button_active')});
-        this._image.addEventListener('click', () => { this.handleCardClick(this._link, this._name) });
-        this._trash.addEventListener('click', () => { this._element.remove() });
+        this._like.addEventListener('click', this._toggleLike );
+        this._image.addEventListener('click', this._deleteCard );
+        this._trash.addEventListener('click', this._handleImageClick);
     }
     
     generateCard() {
