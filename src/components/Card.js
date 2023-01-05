@@ -29,11 +29,11 @@ export default class Card {
     }
 
     _deleteCard() {
-        this.handleCardClick(this._link, this._name)
+        this._element.remove()
     }
 
     _handleImageClick() {
-        this._element.remove()
+        this.handleCardClick(this._link, this._name)
     }
 
 
@@ -41,8 +41,8 @@ export default class Card {
         this._like = this._element.querySelector('.place__like-button');
         this._trash = this._element.querySelector('.place__trash');
         this._like.addEventListener('click', this._toggleLike );
-        this._image.addEventListener('click', this._deleteCard );
-        this._trash.addEventListener('click', this._handleImageClick);
+        this._image.addEventListener('click', this._handleImageClick );
+        this._trash.addEventListener('click', this._deleteCard );
     }
     
     generateCard() {
