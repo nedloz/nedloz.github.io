@@ -12,7 +12,7 @@
         <main class="main">
             <section class="profile">
                 <div class="profile__card">
-                    <img class="profile__image" src="<%=require('./images/profilepicture.jpg')%>" alt="картинка профиля">
+                    <button class="profile__image" type="button"></button>
                     <div class="profile__info">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <button class="profile__edit-button" type="button"></button>
@@ -40,7 +40,7 @@
                         <span class="popup__error profile-name-error"></span>
                     </label>
                     <label class="popup__input-container">
-                        <input class="popup__input popup__input_type_profile-description" id="profile-description" name="description" type="text" minlength="2" maxlength="200" required placeholder="Профессия">
+                        <input class="popup__input popup__input_type_profile-description" id="profile-description" name="about" type="text" minlength="2" maxlength="200" required placeholder="Профессия">
                         <span class="popup__error profile-description-error"></span>
                     </label>
                     <input class="popup__button" type="submit" value="Сохранить">
@@ -61,6 +61,30 @@
                     <label class="popup__input-container">
                         <input class="popup__input popup__input_type_card-link popup__input_type_error" id="card-link" name="link" type="url" required placeholder="Ссылка на картинку">
                         <span class="popup__error card-link-error popup__error_visible"></span>
+                    </label>
+                    <input class="popup__button" type="submit" value="Создать">
+                </form>
+            </div>
+        </div>
+        <div class="popup confirm-popup">
+            <div class="popup__container">
+                <div class="popup__start">
+                    <h2 class="popup__title confirm-popup__title">Вы уверены?</h2>
+                    <button class="popup__close-button" type="button" value=""></button>
+                </div>
+                <input class="popup__button" type="button" value="Да">
+            </div>
+        </div>
+        <div class="popup update-avatar-popup">
+            <div class="popup__container">
+                <div class="popup__start">
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <button class="popup__close-button" type="button" value=""></button>
+                </div>
+                <form novalidate class="popup__form popup__form_type_update-avatar" action="#" name="update-avatar-form" method="post">
+                    <label class="popup__input-container">
+                        <input class="popup__input popup__input_type_update-avatar popup__input_type_error" id="avatar" name="avatar" type="url" required placeholder="Ссылка на новую картинку">
+                        <span class="popup__error avatar-error popup__error_visible"></span>
                     </label>
                     <input class="popup__button" type="submit" value="Сохранить">
                 </form>

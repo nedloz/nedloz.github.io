@@ -27,6 +27,7 @@ export default class PopupWithForm extends Popup {
         evt.preventDefault()
         const list = this._getInputValues() 
         this.submitCallBack(list)
+        
         this.closePopup()
     }
 
