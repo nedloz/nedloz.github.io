@@ -20,6 +20,6 @@ export default class UserInfo {
     }
     
     setUserImage(imageSrc) {
-        this.imagePlace.style.backgroundImage = `url(${imageSrc})`
+        this.imagePlace.style.backgroundImage = `url(${imageSrc})`;
     }
 }

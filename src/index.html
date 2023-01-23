@@ -55,7 +55,7 @@
                 </div>
                 <form novalidate class="popup__form popup__form_type_card " action="#" name="card-form" method="post">
                     <label class="popup__input-container">
-                        <input class="popup__input popup__input_type_card-name popup__input_type_error" id="card-name" name="title" type="text" minlength="2" maxlength="30" required placeholder="Название">
+                        <input class="popup__input popup__input_type_card-name popup__input_type_error" id="card-name" name="name" type="text" minlength="2" maxlength="30" required placeholder="Название">
                         <span class="popup__error card-name-error popup__error_visible"></span>
                     </label>
                     <label class="popup__input-container">
@@ -103,7 +103,11 @@
                     <button class="place__trash" type="button"></button>
                     <div class="place__description">
                         <h2 class="place__name"></h2>
-                        <button class="place__like-button" type="button"></button>
+                        <div class="place__like-container">
+                            <button class="place__like-button" type="button"></button>
+                            <figcaption class="place__like-count">0</figcaption>
+                        </div>
+                        
                     </div>
                 </div>
         </template>

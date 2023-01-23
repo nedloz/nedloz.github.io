@@ -24,11 +24,34 @@ export default class Api {
             body: JSON.stringify(obj)
         })
     }
+
     sendUserAvatar(obj) {
         return fetch(`${this.baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this.headers,
             body: JSON.stringify(obj)
+        })
+    }
+    
+    sendNewCard(obj) {
+        return fetch(`${this.baseUrl}/cards`, {
+            method: 'POST',
+            headers: this.headers,
+            body: JSON.stringify(obj)
+        })
+    }
+
+    setLike(cardId) {
+        return fetch(`${this.baseUrl}/cards/${cardId}/likes `, {
+            method: 'PUT',
+            headers: this.headers
+        })
+    }
+
+    removeLike(cardId) {
+        return fetch(`${this.baseUrl}/cards/${cardId}/likes `, {
+            method: 'DELETE',
+            headers: this.headers
         })
     }
 }
