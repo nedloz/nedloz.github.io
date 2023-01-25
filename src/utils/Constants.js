@@ -3,7 +3,9 @@ export const cardsContainerSelector = '.places'
 export const imagePopupSelector = '.image-popup'
 export const profilePopupSelector = '.profile-popup'
 export const cardPopupSelector = '.card-popup'
+export const confirmPopupSelector = '.confirm-popup'
 export const updateAvatarPopupSelector = '.update-avatar-popup'
+export const popupButton = '.popup__button'
 
 export const closeButtons = document.querySelectorAll('.popup__close-button');
 export const avatarEditButton = document.querySelector('.profile__image')
